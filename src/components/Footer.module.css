@@ -1,0 +1,60 @@
+.footer {
+  background: var(--brown-dark);
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.logo {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.4rem;
+  color: var(--gold-light);
+  margin-bottom: 4px;
+}
+
+.hindi {
+  font-family: var(--font-devanagari), sans-serif;
+  font-size: 0.85rem;
+  color: rgba(232, 201, 116, 0.5);
+  margin-bottom: 16px;
+}
+
+.social {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.social a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(198, 146, 46, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.social a:hover {
+  border-color: var(--gold);
+  background: rgba(198, 146, 46, 0.15);
+}
+
+.social svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--gold-light);
+}
+
+.footer p {
+  font-size: 0.82rem;
+  margin-top: 8px;
+}
+
+.credit {
+  margin-top: 4px;
+  font-size: 0.75rem;
+  opacity: 0.5;
+}

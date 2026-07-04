@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Admission {
+  id              String    @id @default(cuid())
+  studentName     String
+  dateOfBirth     String
+  gender          String
+  parentName      String
+  phone           String
+  email           String
+  address         String
+  danceForm       String
+  experienceLevel String
+  status          String    @default("pending")
+  payments        Payment[]
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+}
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+}
+
+model Payment {
+  id               String    @id @default(cuid())
+  admissionId      String
+  admission        Admission @relation(fields: [admissionId], references: [id])
+  amount           Int
+  currency         String    @default("INR")
+  upiTransactionId String?
+  status           String    @default("pending")
+  createdAt        DateTime  @default(now())
+}

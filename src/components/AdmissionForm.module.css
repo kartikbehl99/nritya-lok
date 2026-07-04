@@ -1,0 +1,147 @@
+.form {
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.field label {
+  font-family: var(--font-playfair), serif;
+  font-size: 0.9rem;
+  color: var(--maroon);
+  font-weight: 600;
+}
+
+.field input,
+.field select,
+.field textarea {
+  padding: 12px 16px;
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  background: #fff;
+  font-family: var(--font-lato), sans-serif;
+  font-size: 0.95rem;
+  color: var(--brown-text);
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--gold);
+}
+
+.field textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.radioGroup {
+  display: flex;
+  gap: 20px;
+  padding: 8px 0;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.93rem;
+  color: var(--brown-text);
+  cursor: pointer;
+}
+
+.radioLabel input[type="radio"] {
+  accent-color: var(--maroon);
+  width: 16px;
+  height: 16px;
+}
+
+.feeBox {
+  background: rgba(198, 146, 46, 0.1);
+  border: 1px solid var(--border-gold);
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+}
+
+.feeBox h3 {
+  font-family: var(--font-playfair), serif;
+  color: var(--maroon);
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.feeBox .amount {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--maroon);
+}
+
+.feeBox p {
+  font-size: 0.85rem;
+  color: #7a6a5e;
+  margin-top: 4px;
+}
+
+.submit {
+  padding: 16px 40px;
+  background: var(--maroon);
+  color: #fff;
+  border: none;
+  font-family: var(--font-lato), sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.3s, transform 0.3s;
+  align-self: center;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--maroon-dark);
+  transform: translateY(-2px);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #c0392b;
+  font-size: 0.82rem;
+  margin-top: -2px;
+}
+
+.formError {
+  background: #fdecea;
+  border: 1px solid #f5c6cb;
+  border-radius: 4px;
+  padding: 12px 16px;
+  color: #c0392b;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

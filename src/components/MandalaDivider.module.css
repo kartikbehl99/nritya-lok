@@ -1,0 +1,40 @@
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  padding: 10px 0;
+}
+
+.divider.alignLeft {
+  justify-content: flex-start;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+}
+
+.line {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+.diamond {
+  width: 10px;
+  height: 10px;
+  background: var(--gold);
+  transform: rotate(45deg);
+}
+
+.light .dot,
+.light .diamond {
+  background: var(--gold-light);
+}
+
+.light .line {
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+}

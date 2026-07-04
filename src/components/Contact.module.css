@@ -1,0 +1,154 @@
+.section {
+  padding: 90px 24px;
+  background: var(--cream-dark);
+}
+
+.grid {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.contactItem {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.contactIcon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--maroon);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactIcon svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--gold-light);
+  fill: none;
+  stroke-width: 1.8;
+}
+
+.contactItem h4 {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.05rem;
+  color: var(--maroon);
+  margin-bottom: 4px;
+}
+
+.contactItem p,
+.contactItem a {
+  font-size: 0.95rem;
+  color: #5a4a3e;
+  line-height: 1.6;
+}
+
+.contactItem a:hover {
+  color: var(--maroon);
+}
+
+/* Hours table */
+.hoursTable {
+  margin-top: 20px;
+  width: 100%;
+}
+
+.hoursRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-gold);
+  font-size: 0.93rem;
+}
+
+.hoursRow:last-child {
+  border-bottom: none;
+}
+
+.day {
+  color: var(--brown-text);
+  font-weight: 700;
+}
+
+.time {
+  color: #7a6a5e;
+}
+
+/* Form */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form h3 {
+  font-family: var(--font-playfair), serif;
+  font-size: 1.4rem;
+  color: var(--maroon);
+  margin-bottom: 4px;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 14px 18px;
+  border: 1px solid var(--border-gold);
+  border-radius: 3px;
+  background: #fff;
+  font-family: var(--font-lato), sans-serif;
+  font-size: 0.95rem;
+  color: var(--brown-text);
+  transition: border-color 0.3s;
+  outline: none;
+}
+
+.form input:focus,
+.form textarea:focus {
+  border-color: var(--gold);
+}
+
+.form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitBtn {
+  align-self: flex-start;
+  padding: 14px 40px;
+  background: var(--maroon);
+  color: #fff;
+  border: none;
+  font-family: var(--font-lato), sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.submitBtn:hover {
+  background: var(--maroon-dark);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
