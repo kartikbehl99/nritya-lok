@@ -5,19 +5,13 @@ import { prisma } from "@/lib/prisma";
 const admissionSchema = z.object({
   studentName: z.string().min(2, "Name must be at least 2 characters"),
   dateOfBirth: z.string().min(1, "Date of birth is required"),
-  gender: z.enum(["Female", "Male", "Other"], {
-    errorMap: () => ({ message: "Please select a gender" }),
-  }),
+  gender: z.enum(["Female", "Male", "Other"], { message: "Please select a gender" }),
   parentName: z.string().min(2, "Parent name must be at least 2 characters"),
   phone: z.string().min(10, "Phone must be at least 10 digits"),
   email: z.string().email("Invalid email address"),
   address: z.string().min(5, "Address must be at least 5 characters"),
-  danceForm: z.enum(["Bharatanatyam", "Kathak", "Semi-Classical & Folk"], {
-    errorMap: () => ({ message: "Please select a dance form" }),
-  }),
-  experienceLevel: z.enum(["Beginner", "Intermediate", "Advanced"], {
-    errorMap: () => ({ message: "Please select experience level" }),
-  }),
+  danceForm: z.enum(["Bharatanatyam", "Kathak", "Semi-Classical & Folk"], { message: "Please select a dance form" }),
+  experienceLevel: z.enum(["Beginner", "Intermediate", "Advanced"], { message: "Please select experience level" }),
 });
 
 export async function POST(request: Request) {
@@ -27,7 +21,7 @@ export async function POST(request: Request) {
 
     if (!parsed.success) {
       return NextResponse.json(
-        { errors: parsed.error.errors },
+        { errors: parsed.error.issues },
         { status: 400 }
       );
     }
