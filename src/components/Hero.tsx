@@ -10,7 +10,7 @@ export default function Hero() {
           Nritya <span className={styles.accent}>Lok</span>
         </h1>
         <p className={styles.subtitle}>
-          Nurturing the timeless art of Indian classical dance since 2005
+          Nurturing the timeless arts of Indian classical dance, music &amp; art
         </p>
         <a href="#contact" className={styles.cta}>
           Begin Your Journey

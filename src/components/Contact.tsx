@@ -27,9 +27,8 @@ export default function Contact() {
     };
 
     if (!data.name || !data.email || !data.message) {
-        setError("Please fill in all required fields.");
-        setSending(false);
-        return;
+      setError("Please fill in all required fields.");
+      return;
     }
 
     setSending(true);
@@ -47,14 +46,13 @@ export default function Contact() {
         setSent(true);
         formRef.current.reset();
       } else {
-        setError("Failed to send. Please try again.");
         const result = await res.json();
         if (result.errors) {
-          const errors: Record<string, string> = {};
+          const errs: Record<string, string> = {};
           for (const err of result.errors) {
-            errors[err.path[0]] = err.message;
-          };
-          setFieldErrors(errors);
+            errs[err.path[0]] = err.message;
+          }
+          setFieldErrors(errs);
         } else {
           setError(result.message || "Failed to send. Please try again.");
         }
@@ -162,31 +160,20 @@ export default function Contact() {
               <>
                 <div>
                   <input name="name" type="text" placeholder="Your Name" required />
-                  {fieldErrors.name && (
-                    <p style={{ color: "#c0392b", fontSize: "0.82rem", marginTop: 4 }}>{fieldErrors.name}</p>
-                  )}
+                  {fieldErrors.name && <p style={{ color: "#c0392b", fontSize: "0.82rem", marginTop: 4 }}>{fieldErrors.name}</p>}
                 </div>
                 <div>
                   <input name="email" type="email" placeholder="Your Email" required />
-                  {fieldErrors.email && (
-                    <p style={{ color: "#c0392b", fontSize: "0.82rem", marginTop: 4 }}>{fieldErrors.email}</p>
-                  )}
+                  {fieldErrors.email && <p style={{ color: "#c0392b", fontSize: "0.82rem", marginTop: 4 }}>{fieldErrors.email}</p>}
                 </div>
-                <div>
-                  <input name="phone" type="tel" placeholder="Phone Number" />
-                  {fieldErrors.phone && (
-                    <p style={{ color: "#c0392b", fontSize: "0.82rem", marginTop: 4 }}>{fieldErrors.phone}</p>
-                  )}
-                </div>
+                <input name="phone" type="tel" placeholder="Phone Number" />
                 <div>
                   <textarea
                     name="message"
                     placeholder="Your Message — tell us about your interest in dance classes..."
                     required
                   />
-                  {fieldErrors.message && (
-                    <p style={{ color: "#c0392b", fontSize: "0.82rem", marginTop: 4 }}>{fieldErrors.message}</p>
-                  )}
+                  {fieldErrors.message && <p style={{ color: "#c0392b", fontSize: "0.82rem", marginTop: 4 }}>{fieldErrors.message}</p>}
                 </div>
                 {error && (
                   <p style={{ color: "#c0392b", fontSize: "0.85rem" }}>{error}</p>

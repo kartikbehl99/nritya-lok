@@ -70,7 +70,7 @@ export default async function PaymentPage({
             <div style={{ display: "grid", gap: 12, fontSize: "0.95rem" }}>
               {[
                 ["Student", admission.studentName],
-                ["Dance Form", admission.danceForm],
+                ["Program", admission.program],
                 ["Experience", admission.experienceLevel],
                 ["Parent/Guardian", admission.parentName],
                 ["Email", admission.email],

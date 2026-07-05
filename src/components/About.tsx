@@ -26,27 +26,25 @@ export default function About() {
             <MandalaDivider align="left" showDots={false} />
             <h2>Where Tradition Meets Devotion</h2>
             <p>
-              Nritya Lok is a dedicated Indian classical dance school
-              committed to preserving and propagating the rich heritage of
-              India&apos;s classical dance traditions. Founded with a passion for
-              the arts, our school provides a nurturing environment where
-              students of all ages can learn, grow, and express themselves
-              through dance.
+              Nritya Lok is a vibrant school of Indian classical dance, music,
+              and visual arts — committed to preserving and propagating the rich
+              cultural heritage of India. We provide a nurturing environment
+              where students of all ages can learn, grow, and express themselves
+              through art.
             </p>
             <p>
-              Under the guidance of our experienced Guru, students receive
-              personalized attention in small batch sizes, ensuring each dancer
-              develops proper technique, emotional expression (
-              <em>abhinaya</em>), and a deep understanding of the art
-              form&apos;s spiritual roots.
+              Under the guidance of our experienced teachers, students receive
+              personalized attention in small batch sizes, ensuring they develop
+              proper technique, emotional depth, and a deep understanding of
+              each art form&apos;s spiritual roots.
             </p>
             <p>
-              We believe that classical dance is not merely a performance art —
-              it is a discipline that cultivates grace, confidence, cultural
+              We believe that the classical arts are not merely performance —
+              they are disciplines that cultivate grace, confidence, cultural
               awareness, and spiritual connection in every practitioner.
             </p>
             <div className={styles.established}>
-              Dedicated to the Art of Dance since 2005
+              Dedicated to the Classical Arts
             </div>
           </div>
         </FadeIn>

@@ -29,7 +29,7 @@ export default async function AdminAdmissions() {
               <tr>
                 <th>Student</th>
                 <th>Parent</th>
-                <th>Dance Form</th>
+                <th>Program</th>
                 <th>Level</th>
                 <th>Phone</th>
                 <th>Date</th>
@@ -47,7 +47,7 @@ export default async function AdminAdmissions() {
                     </div>
                   </td>
                   <td>{a.parentName}</td>
-                  <td>{a.danceForm}</td>
+                  <td>{a.program}</td>
                   <td>{a.experienceLevel}</td>
                   <td>{a.phone}</td>
                   <td>

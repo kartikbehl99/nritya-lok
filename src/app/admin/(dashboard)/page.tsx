@@ -66,7 +66,7 @@ export default async function AdminDashboard() {
             <thead>
               <tr>
                 <th>Student</th>
-                <th>Dance Form</th>
+                <th>Program</th>
                 <th>Date</th>
                 <th>Status</th>
               </tr>
@@ -75,7 +75,7 @@ export default async function AdminDashboard() {
               {recentAdmissions.map((a) => (
                 <tr key={a.id}>
                   <td>{a.studentName}</td>
-                  <td>{a.danceForm}</td>
+                  <td>{a.program}</td>
                   <td>
                     {new Date(a.createdAt).toLocaleDateString("en-IN", {
                       day: "numeric",

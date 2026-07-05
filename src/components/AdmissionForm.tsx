@@ -4,7 +4,11 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./AdmissionForm.module.css";
 
-const DANCE_FORMS = ["Bharatanatyam", "Kathak", "Semi-Classical & Folk"];
+const PROGRAMS = {
+  "Dance": ["Bharatanatyam", "Kathak", "Semi-Classical & Folk"],
+  "Music": ["Hindustani Vocal", "Tabla & Percussion", "Harmonium", "Sitar"],
+  "Art": ["Drawing & Sketching", "Painting", "Mehendi Art"],
+};
 const EXPERIENCE_LEVELS = ["Beginner", "Intermediate", "Advanced"];
 
 type FormErrors = Record<string, string>;
@@ -30,7 +34,7 @@ export default function AdmissionForm() {
       phone: form.get("phone") as string,
       email: form.get("email") as string,
       address: form.get("address") as string,
-      danceForm: form.get("danceForm") as string,
+      program: form.get("program") as string,
       experienceLevel: form.get("experienceLevel") as string,
     };
 
@@ -135,19 +139,21 @@ export default function AdmissionForm() {
 
       <div className={styles.row}>
         <div className={styles.field}>
-          <label htmlFor="danceForm">Dance Form *</label>
-          <select id="danceForm" name="danceForm" required defaultValue="">
+          <label htmlFor="program">Program *</label>
+          <select id="program" name="program" required defaultValue="">
             <option value="" disabled>
-              Select a dance form
+              Select a program
             </option>
-            {DANCE_FORMS.map((f) => (
-              <option key={f} value={f}>
-                {f}
-              </option>
+            {Object.entries(PROGRAMS).map(([category, items]) => (
+              <optgroup key={category} label={category}>
+                {items.map((item) => (
+                  <option key={item} value={item}>{item}</option>
+                ))}
+              </optgroup>
             ))}
           </select>
-          {errors.danceForm && (
-            <span className={styles.error}>{errors.danceForm}</span>
+          {errors.program && (
+            <span className={styles.error}>{errors.program}</span>
           )}
         </div>
         <div className={styles.field}>

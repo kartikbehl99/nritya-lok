@@ -23,9 +23,9 @@ const devanagari = Noto_Sans_Devanagari({
 });
 
 export const metadata: Metadata = {
-  title: "Nritya Lok — Indian Classical Dance School",
+  title: "Nritya Lok — Dance, Music & Art School",
   description:
-    "Nritya Lok is a premier Indian classical dance school offering training in Bharatanatyam, Kathak, and more. Join us to discover the beauty of traditional Indian dance.",
+    "Nritya Lok is a premier Indian classical dance, music, and art school offering training in Bharatanatyam, Kathak, Hindustani Vocal, Tabla, Painting, and more.",
 };
 
 export default function RootLayout({

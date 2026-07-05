@@ -4,9 +4,9 @@ import styles from "./Features.module.css";
 
 const FEATURES = [
   {
-    title: "Experienced Guru",
+    title: "Experienced Teachers",
     description:
-      "Learn from a dedicated teacher with years of training and performance experience in classical dance traditions.",
+      "Learn from dedicated teachers with years of training and performance experience across dance, music, and visual arts.",
     icon: (
       <svg viewBox="0 0 24 24">
         <circle cx="12" cy="8" r="4" />

@@ -5,7 +5,7 @@ import styles from "./Navbar.module.css";
 
 const NAV_ITEMS = [
   { href: "#about", label: "About" },
-  { href: "#dance-forms", label: "Dance Forms" },
+  { href: "#programs", label: "Programs" },
   { href: "#gallery", label: "Gallery" },
   { href: "/admission", label: "Admission" },
   { href: "#contact", label: "Contact" },

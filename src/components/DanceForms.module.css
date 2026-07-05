@@ -59,6 +59,20 @@
   );
 }
 
+.category {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--gold-light);
+  background: rgba(198, 146, 46, 0.2);
+  padding: 3px 10px;
+  border-radius: 3px;
+  margin-bottom: 8px;
+  align-self: flex-start;
+}
+
 .overlay h3 {
   font-family: var(--font-playfair), serif;
   font-size: 1.5rem;

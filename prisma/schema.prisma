@@ -23,7 +23,7 @@ model Admission {
   phone           String
   email           String
   address         String
-  danceForm       String
+  program         String
   experienceLevel String
   status          String    @default("pending")
   payments        Payment[]
