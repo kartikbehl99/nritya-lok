@@ -13,6 +13,7 @@ export default function Contact() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
   const formRef = useRef<HTMLFormElement>(null);
 
   async function handleSubmit() {
@@ -25,10 +26,15 @@ export default function Contact() {
       message: form.get("message") as string,
     };
 
-    if (!data.name || !data.email || !data.message) return;
+    if (!data.name || !data.email || !data.message) {
+        setError("Please fill in all required fields.");
+        setSending(false);
+        return;
+    }
 
     setSending(true);
     setError("");
+    setFieldErrors({});
 
     try {
       const res = await fetch("/api/contact", {
@@ -42,6 +48,16 @@ export default function Contact() {
         formRef.current.reset();
       } else {
         setError("Failed to send. Please try again.");
+        const result = await res.json();
+        if (result.errors) {
+          const errors: Record<string, string> = {};
+          for (const err of result.errors) {
+            errors[err.path[0]] = err.message;
+          };
+          setFieldErrors(errors);
+        } else {
+          setError(result.message || "Failed to send. Please try again.");
+        }
       }
     } catch {
       setError("Network error. Please try again.");
@@ -144,14 +160,34 @@ export default function Contact() {
               </div>
             ) : (
               <>
-                <input name="name" type="text" placeholder="Your Name" required />
-                <input name="email" type="email" placeholder="Your Email" required />
-                <input name="phone" type="tel" placeholder="Phone Number" />
-                <textarea
-                  name="message"
-                  placeholder="Your Message — tell us about your interest in dance classes..."
-                  required
-                />
+                <div>
+                  <input name="name" type="text" placeholder="Your Name" required />
+                  {fieldErrors.name && (
+                    <p style={{ color: "#c0392b", fontSize: "0.82rem", marginTop: 4 }}>{fieldErrors.name}</p>
+                  )}
+                </div>
+                <div>
+                  <input name="email" type="email" placeholder="Your Email" required />
+                  {fieldErrors.email && (
+                    <p style={{ color: "#c0392b", fontSize: "0.82rem", marginTop: 4 }}>{fieldErrors.email}</p>
+                  )}
+                </div>
+                <div>
+                  <input name="phone" type="tel" placeholder="Phone Number" />
+                  {fieldErrors.phone && (
+                    <p style={{ color: "#c0392b", fontSize: "0.82rem", marginTop: 4 }}>{fieldErrors.phone}</p>
+                  )}
+                </div>
+                <div>
+                  <textarea
+                    name="message"
+                    placeholder="Your Message — tell us about your interest in dance classes..."
+                    required
+                  />
+                  {fieldErrors.message && (
+                    <p style={{ color: "#c0392b", fontSize: "0.82rem", marginTop: 4 }}>{fieldErrors.message}</p>
+                  )}
+                </div>
                 {error && (
                   <p style={{ color: "#c0392b", fontSize: "0.85rem" }}>{error}</p>
                 )}
